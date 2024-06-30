@@ -3,8 +3,7 @@ package org.myworkspace.UserServiceApplication.DTOs;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
-import org.myworkspace.UserServiceApplication.Entities.Address;
-import org.myworkspace.UserServiceApplication.Entities.UserIdentifier;
+import org.myworkspace.Utilities.UserIdentifier;
 import org.myworkspace.UserServiceApplication.Entities.UserType;
 import org.myworkspace.UserServiceApplication.Entities.Users;
 
