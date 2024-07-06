@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.myworkspace.UserServiceApplication.Aspects.ValidContact;
+import org.myworkspace.UserServiceApplication.Aspects.ValidEmail;
 import org.myworkspace.Utilities.UserIdentifier;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -26,9 +28,11 @@ public class Users implements UserDetails {
     private Integer pk;
 
     @Column(unique = true, nullable = false)
+    @ValidContact
     private String contactNo;
 
     @Column(unique = true, nullable = false)
+    @ValidEmail
     private String email;
 
     private String name;
