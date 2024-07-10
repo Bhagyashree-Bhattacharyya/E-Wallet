@@ -21,6 +21,6 @@ public class TxnController {
                           @RequestParam("purpose") String purpose,
                           @RequestParam("amount") String amount){
         UserDetails details = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        return null;
+        return txnService.initTxn(receiver, purpose, amount, details.getUsername());
     }
 }

@@ -26,6 +26,8 @@ public class SecurityConfig {
     private String userAuthority;
     @Value("${admin.Authority}")
     private String adminAuthority;
+    @Value("${service.Authority}")
+    private String serviceAuthority;
 
     @Bean
     public AuthenticationProvider authenticationProvider() {
@@ -39,7 +41,8 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests(authorize -> authorize
                 .requestMatchers("/user/addUpdate/**").permitAll()
-                .anyRequest().permitAll() // ** request matchers later
+                .requestMatchers("/user/userDetails/**").hasAnyAuthority(adminAuthority, serviceAuthority)
+                .anyRequest().permitAll()
         ).formLogin(withDefaults()).httpBasic(withDefaults()).csrf(csrf -> csrf.disable());
         return http.build();
     }

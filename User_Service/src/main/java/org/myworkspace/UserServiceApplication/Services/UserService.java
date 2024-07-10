@@ -59,7 +59,7 @@ public class UserService implements UserDetailsService {
     }
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return null;
+    public Users loadUserByUsername(String username) throws UsernameNotFoundException {
+        return userRepository.findByContactNo(username);
     }
 }
