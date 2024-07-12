@@ -53,7 +53,6 @@ Set up your MySQL database and update the application.properties file in each se
 5. **Running the Application**
 Start each service from its respective directory using the following command:
 ```bash
-Copy code
 mvn spring-boot:run
 ```
 
